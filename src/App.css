@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Silkscreen', cursive;
+  font-size: 30px;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  background-image: url('/media/pexels-francesco-ungaro-1670977.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform:scaleX(-1);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1em;
+  margin: auto;
+  padding: 1em;
+}
+
+.vignette-radial:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: radial-gradient(circle, transparent 1%, black 75%);
+}
+
+#drum-machine {
+  border: 10px solid white;
+  border-radius: 40px;
+  overflow: hidden;
+  transform:scaleX(-1);
+  display: grid;
+/*   position: absolute; */
+  grid-template-columns: 67% 1fr 2fr;
+  grid-template-rows: 2% 10% 2% 86%;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  min-width: 800px;
+  height: 60vh;
+  min-height: 800px;
+}
+
+#drum-machine::after {
+  content: "";
+  background: url('/media/8-bit-arcade-cabinet-retro-games-monochrome-wallpaper-preview.jpg'), black;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+/*   width:100%;
+  height:100%; */
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0; 
+  position: absolute;
+  z-index: -1;  
+}
+
+#display {
+  background-color: rgba(186,184,130,.7);
+  grid-row: 2/3;
+  height: 100%;
+  width: 60%;
+  margin: auto;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid grey;
+}
+
+#drum-pad {
+  width: 80%;
+  height: 80%;
+  grid-column: 1/2;
+  grid-row: 4/5;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.copyright {
+  transform:scaleX(-1);
+  text-align: center;
+  font-size: 18px;
+  color:rgb(183, 58, 57);
+  background-color: rgba(255,255,255,.4);
+  padding: 1em;
+  border: 5px solid black;
+  border-radius: 20px;
+}
+
+#display p {
+  
+}
+
+/* Power Button - https://codepen.io/cassidoo/pen/ZNLeyV */
+#power {
+  grid-column: 2/3;
+  grid-row: 4/5;
+  margin: auto;
+  padding: 0;
+}
+
+#powerbutton {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 145px;
+  background: linear-gradient(to bottom, #752b22 0%, #f6765f 16%, #390e09 19%, #300b08 60%, #370c0b 90%, #2d0606 95%, #250404 100%);
+  border: 2px solid #0a080a;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0 -5px 5px 1px #1f1e1e, 0 2px 5px 1px #2c2b2b;
+  outline: none;
+}
+#powerbutton.on {
+  background: linear-gradient(to bottom, #4d0d04 0%, #842f22 6%, #1f0d07 8%, #58160c 40%, #f65021 75%, #f6765f 86%, #731101 88%, #660c03 100%);
+  border-top: 1px solid #040404;
+  -o-border-image: linear-gradient(to top, rgba(247, 170, 40, 0.1) 0, #e61404 10%, rgba(247, 170, 40, 0.6) 19%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%) 1 100%;
+     border-image: linear-gradient(to top, rgba(247, 170, 40, 0.1) 0, #e61404 10%, rgba(247, 170, 40, 0.6) 19%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%) 1 100%;
+  border-image-width: 1px;
+  box-shadow: 0 5px 5px 1px #1d1b1b, 0 -2px 5px 1px #212121;
+}
+
+
+/* Arcade Button - https://codepen.io/alvarotrigo/pen/OJQgqpx */
+.arcade-button {
+  position: relative;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  -moz-border-radius: 60px;
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
+  border: #fc2c2c 1px solid;
+  background-color: #c11010;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjQwcHgiIGN5PSI0MHB4IiByPSI2NSUiPjxzdG9wIG9mZnNldD0iMjMuMDc2OTIlIiBzdG9wLWNvbG9yPSIjZmMyYzcxIi8+PHN0b3Agb2Zmc2V0PSI0Ni4xNTM4NSUiIHN0b3AtY29sb3I9IiNmYzRhODUiLz48c3RvcCBvZmZzZXQ9IjYxLjUzODQ2JSIgc3RvcC1jb2xvcj0iI2ZjNGE4NSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZjMjc2ZSIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -moz-radial-gradient(40px 40px, circle contain, #d31212 15px, #c02121 30px, #b11616 40px, #ae0909 65px);
+  background-image: -webkit-radial-gradient(40px 40px, circle contain, #d31212 15px, #c02121 30px, #b11616 40px, #ae0909 65px);
+  background-image: radial-gradient(circle contain at 40px 40px, #d31212 15px, #c02121 30px, #b11616 40px, #ae0909 65px);
+  background-position: center center;
+  background-repeat: no-repeat;
+  -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(255, 255, 255, 0.7) 0 3px 3px inset, #5b0101 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.5) 0 -2px 3px inset, #8d0202 0 -7px 20px inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(255, 255, 255, 0.7) 0 3px 3px inset, #5b0101 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.5) 0 -2px 3px inset, #8d0202 0 -7px 20px inset;
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(255, 255, 255, 0.7) 0 3px 3px inset, #5b0101 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.5) 0 -2px 3px inset, #8d0202 0 -7px 20px inset;
+}
+
+.arcade-button:hover {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjQwcHgiIGN5PSI0MHB4IiByPSI2NSUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmYzQ1ODIiLz48c3RvcCBvZmZzZXQ9IjQ2LjE1Mzg1JSIgc3RvcC1jb2xvcj0iI2ZkNWU5MyIvPjxzdG9wIG9mZnNldD0iNjEuNTM4NDYlIiBzdG9wLWNvbG9yPSIjZmQ1ZTkzIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmM0NTgyIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -moz-radial-gradient(40px 40px, circle contain, #fc4545, #fd5d5d 30px, #fd5d5d 40px, #fc4545 65px);
+  background-image: -webkit-radial-gradient(40px 40px, circle contain, #fc4545, #fd5d5d 30px, #fd5d5d 40px, #fc4545 65px);
+  background-image: radial-gradient(circle contain at 40px 40px, #fc4545, #fd5d5d 30px, #fd5d5d 40px, #fc4545 65px);
+  -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(255, 255, 255, 0.9) 0 3px 3px inset, #8d0202 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.5) 0 -2px 3px inset, #8d0202 0 -7px 20px inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(255, 255, 255, 0.9) 0 3px 3px inset, #8d0202 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.5) 0 -2px 3px inset, #8d0202 0 -7px 20px inset;
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(255, 255, 255, 0.9) 0 3px 3px inset, #8d0202 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.5) 0 -2px 3px inset, #8d0202 0 -7px 20px inset;
+}
+
+.arcade-button:active {
+  border-color: black;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjQwcHgiIGN5PSI0MHB4IiByPSI2NSUiPjxzdG9wIG9mZnNldD0iMjMuMDc2OTIlIiBzdG9wLWNvbG9yPSIjZmMyYzcxIi8+PHN0b3Agb2Zmc2V0PSI0Ni4xNTM4NSUiIHN0b3AtY29sb3I9IiNkODAzNGEiLz48c3RvcCBvZmZzZXQ9IjYxLjUzODQ2JSIgc3RvcC1jb2xvcj0iI2Q4MDM0YSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2E2MDIzOSIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -moz-radial-gradient(40px 40px, circle contain, #fc2c2c 15px, #d80303 30px, #d80303 40px, #a70202 65px);
+  background-image: -webkit-radial-gradient(40px 40px, circle contain, #fc2c2c 15px, #d80303 30px, #d80303 40px, #a70202 65px);
+  background-image: radial-gradient(circle contain at 40px 40px, #fc2c2c 15px, #d80303 30px, #d80303 40px, #a70202 65px);
+  -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(0, 0, 0, 0.8) 0 3px 3px inset, #8d0202 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.3) 0 -2px 3px inset, #8d0202 0 -7px 20px inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(0, 0, 0, 0.8) 0 3px 3px inset, #8d0202 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.3) 0 -2px 3px inset, #8d0202 0 -7px 20px inset;
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(0, 0, 0, 0.8) 0 3px 3px inset, #8d0202 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.3) 0 -2px 3px inset, #8d0202 0 -7px 20px inset;
+}
+
+.arcade-button:before {
+  display: block;
+  content: '';
+  position: absolute;
+  z-index: -3;
+  top: -12px;
+  left: -12px;
+  background: #c60c0c;
+  width: 120px;
+  height: 120px;
+  -moz-border-radius: 80px;
+  -webkit-border-radius: 80px;
+  border-radius: 80px;
+  -moz-box-shadow: #bf0303 0 4px 5px inset, rgba(255, 255, 255, 0.5) 0 12px 5px inset, #8d0202 0 -12px 5px inset, rgba(0, 0, 0, 0.8) 0 4px 8px;
+  -webkit-box-shadow: #bf0303 0 4px 5px inset, rgba(255, 255, 255, 0.5) 0 12px 5px inset, #8d0202 0 -12px 5px inset, rgba(0, 0, 0, 0.8) 0 4px 8px;
+  box-shadow: #bf0303 0 4px 5px inset, rgba(255, 255, 255, 0.5) 0 12px 5px inset, #8d0202 0 -12px 5px inset, rgba(0, 0, 0, 0.8) 0 4px 8px;
+}
